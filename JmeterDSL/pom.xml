@@ -7,76 +7,131 @@
   <name>Archetype - JmeterDSL</name>
   <url>http://maven.apache.org</url>
 
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <abstracta.jmeter.version>1.29</abstracta.jmeter.version>
+    <assertj.core>3.24.2</assertj.core>
+    <pact.jvm.consumer>4.0.10</pact.jvm.consumer>
+    <junit.jupiter.api>5.10.2</junit.jupiter.api>
+    <junit.platform>1.10.2</junit.platform>
+    <junit.jupiter.engine>5.10.0</junit.jupiter.engine>
+    <ApacheJMeter_http>5.5</ApacheJMeter_http>
+    <log4j.version>2.20.0</log4j.version>
+    <packaging>jar</packaging>
+  </properties>
+
   <dependencies>
 
     <dependency>
       <groupId>us.abstracta.jmeter</groupId>
       <artifactId>jmeter-java-dsl</artifactId>
-      <version>1.29</version>
-      <scope>main</scope>
+      <version>${abstracta.jmeter.version}</version>
+      <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>us.abstracta.jmeter</groupId>
+      <artifactId>jmeter-java-dsl-wrapper</artifactId>
+      <version>${abstracta.jmeter.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>us.abstracta.jmeter</groupId>
+      <artifactId>jmeter-java-dsl-jdbc</artifactId>
+      <version>${abstracta.jmeter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>us.abstracta.jmeter</groupId>
+      <artifactId>jmeter-java-dsl-dashboard</artifactId>
+      <version>${abstracta.jmeter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.10.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>3.24.2</version>
-      <scope>main</scope>
+      <version>${assertj.core}</version>
+      <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>au.com.dius</groupId>
-      <artifactId>pact-jvm-consumer</artifactId>
-      <version>4.0.10</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>au.com.dius</groupId>-->
+<!--      <artifactId>pact-jvm-consumer</artifactId>-->
+<!--      <version>${pact.jvm.consumer}</version>-->
+<!--    </dependency>-->
 
-    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.10.2</version>
-      <scope>main</scope>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-launcher</artifactId>
-      <version>1.10.2</version>
-      <scope>main</scope>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-engine -->
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-engine</artifactId>
-      <version>1.10.2</version>
-      <scope>main</scope>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-commons -->
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-commons</artifactId>
-      <version>1.10.2</version>
-    </dependency>
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-api</artifactId>-->
+<!--      <version>${junit.jupiter.api}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.platform</groupId>-->
+<!--      <artifactId>junit-platform-launcher</artifactId>-->
+<!--      <version>${junit.platform}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.platform/junit-platform-engine &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.platform</groupId>-->
+<!--      <artifactId>junit-platform-engine</artifactId>-->
+<!--      <version>${junit.platform}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.platform/junit-platform-commons &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.platform</groupId>-->
+<!--      <artifactId>junit-platform-commons</artifactId>-->
+<!--      <version>${junit.platform}</version>-->
+<!--    </dependency>-->
 
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.10.0</version>
-      <scope>main</scope>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.apache.jmeter/ApacheJMeter_http -->
-    <dependency>
-      <groupId>org.apache.jmeter</groupId>
-      <artifactId>ApacheJMeter_http</artifactId>
-      <version>5.5</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-engine</artifactId>-->
+<!--      <version>${junit.jupiter.engine}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.jmeter/ApacheJMeter_http &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.apache.jmeter</groupId>-->
+<!--      <artifactId>ApacheJMeter_http</artifactId>-->
+<!--      <version>${ApacheJMeter_http}</version>-->
+<!--    </dependency>-->
 
-    <!-- https://mvnrepository.com/artifact/us.abstracta.jmeter/jmeter-java-dsl-wrapper -->
-    <dependency>
-      <groupId>us.abstracta.jmeter</groupId>
-      <artifactId>jmeter-java-dsl-wrapper</artifactId>
-      <version>1.29</version>
-    </dependency>
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/us.abstracta.jmeter/jmeter-java-dsl-wrapper &ndash;&gt;-->
+
+
 
   </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>15</source>
+                    <target>15</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
